@@ -1181,382 +1181,352 @@ HTML = r"""
 
 <meta charset="UTF-8">
 
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>
-GameHub
-</title>
+<title>GameHub</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-
-    margin: 0;
-
-    font-family: Arial, sans-serif;
-
-    background:
-        #080d19;
-
-    color: white;
-
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    background-attachment: fixed;
+    color: #e0e0e0;
+    min-height: 100vh;
 }
-
 
 header {
-
-    height: 70px;
-
+    height: 80px;
     display: flex;
-
     align-items: center;
-
-    justify-content:
-        space-between;
-
-    padding:
-        0 5%;
-
-    background:
-        #10182b;
-
-    border-bottom:
-        1px solid #293452;
-
+    justify-content: space-between;
+    padding: 0 6%;
+    background: rgba(10, 10, 20, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(102, 126, 234, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
-
 
 .logo {
-
-    font-size:
-        25px;
-
-    font-weight:
-        900;
-
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
-
-
-.logo span {
-
-    color:
-        #5d91ff;
-
-}
-
 
 nav {
-
-    display:
-        flex;
-
-    gap:
-        20px;
-
+    display: flex;
+    gap: 30px;
+    align-items: center;
 }
-
 
 nav a {
-
-    color:
-        white;
-
-    text-decoration:
-        none;
-
+    color: #e0e0e0;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+#account {
+    color: #667eea;
+    font-weight: 600;
+    font-size: 14px;
+}
 
 .hero {
-
-    text-align:
-        center;
-
-    padding:
-        80px 20px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #111d46,
-            #172d61
-        );
-
+    text-align: center;
+    padding: 100px 20px 80px;
+    background: linear-gradient(180deg, rgba(102, 126, 234, 0.1) 0%, transparent 100%);
+    position: relative;
+    overflow: hidden;
 }
 
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+}
 
 .hero h1 {
-
-    font-size:
-        45px;
-
-    margin:
-        0 0 15px;
-
+    font-size: 56px;
+    font-weight: 800;
+    margin: 0 0 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    z-index: 1;
+    letter-spacing: -2px;
 }
-
 
 .hero p {
-
-    color:
-        #b8c4df;
-
+    color: #a0a0a0;
+    font-size: 18px;
+    position: relative;
+    z-index: 1;
+    font-weight: 500;
 }
-
 
 .auth {
-
-    max-width:
-        1000px;
-
-    margin:
-        30px auto;
-
-    padding:
-        20px;
-
-    display:
-        grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap:
-        20px;
-
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
 }
-
 
 .box {
-
-    background:
-        #121c32;
-
-    padding:
-        20px;
-
-    border-radius:
-        15px;
-
-    border:
-        1px solid #293654;
-
+    background: rgba(20, 20, 40, 0.8);
+    backdrop-filter: blur(20px);
+    padding: 35px;
+    border-radius: 20px;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
 }
 
+.box:hover {
+    border-color: rgba(102, 126, 234, 0.5);
+    box-shadow: 0 15px 45px rgba(102, 126, 234, 0.15);
+    transform: translateY(-5px);
+}
 
-input,
-select,
+.box h2 {
+    font-size: 22px;
+    margin-bottom: 25px;
+    color: #e0e0e0;
+    font-weight: 700;
+}
+
+input, select {
+    width: 100%;
+    padding: 14px 16px;
+    margin: 10px 0;
+    border-radius: 12px;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    background: rgba(10, 10, 20, 0.6);
+    color: #e0e0e0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #667eea;
+    background: rgba(10, 10, 20, 0.9);
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.2);
+}
+
+input::placeholder {
+    color: #666;
+}
+
 button {
-
-    width:
-        100%;
-
-    padding:
-        12px;
-
-    margin:
-        6px 0;
-
-    border-radius:
-        8px;
-
-    border:
-        1px solid #354363;
-
-    background:
-        #091122;
-
-    color:
-        white;
-
+    width: 100%;
+    padding: 14px 16px;
+    margin: 10px 0;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
 }
 
-
-button {
-
-    background:
-        #356de8;
-
-    cursor:
-        pointer;
-
-    border:
-        none;
-
-    font-weight:
-        bold;
-
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
 }
 
+button:active {
+    transform: translateY(0);
+}
 
 .tools {
-
-    max-width:
-        1200px;
-
-    margin:
-        20px auto;
-
-    padding:
-        0 20px;
-
-    display:
-        flex;
-
-    gap:
-        10px;
-
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 30px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
+#search {
+    flex: 1;
+    min-width: 250px;
+}
+
+#category {
+    min-width: 150px;
+}
 
 .games {
-
-    max-width:
-        1200px;
-
-    margin:
-        auto;
-
-    padding:
-        20px;
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(
-            auto-fill,
-            minmax(
-                220px,
-                1fr
-            )
-        );
-
-    gap:
-        18px;
-
+    max-width: 1300px;
+    margin: 30px auto;
+    padding: 0 30px 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 25px;
 }
-
 
 .card {
-
-    background:
-        #121c32;
-
-    border:
-        1px solid #293654;
-
-    border-radius:
-        15px;
-
-    padding:
-        15px;
-
+    background: rgba(20, 20, 40, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    border-radius: 16px;
+    padding: 18px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
 }
 
+.card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(102, 126, 234, 0.5);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+}
 
 .card img {
-
-    width:
-        100%;
-
-    height:
-        140px;
-
-    object-fit:
-        cover;
-
-    border-radius:
-        10px;
-
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 12px;
 }
-
 
 .placeholder {
-
-    height:
-        140px;
-
-    background:
-        #202c47;
-
-    border-radius:
-        10px;
-
-    display:
-        grid;
-
-    place-items:
-        center;
-
-    font-size:
-        45px;
-
+    height: 160px;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    font-size: 50px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(102, 126, 234, 0.2);
 }
-
 
 .tag {
-
-    display:
-        inline-block;
-
-    margin-top:
-        10px;
-
-    padding:
-        5px 9px;
-
-    border-radius:
-        20px;
-
-    background:
-        #24365e;
-
-    color:
-        #abc5ff;
-
-    font-size:
-        12px;
-
+    display: inline-block;
+    margin-bottom: 12px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+    color: #667eea;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid rgba(102, 126, 234, 0.3);
 }
 
+.card h3 {
+    font-size: 18px;
+    margin: 12px 0 8px;
+    color: #e0e0e0;
+    font-weight: 700;
+}
+
+.card p {
+    font-size: 13px;
+    color: #a0a0a0;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.card button {
+    width: 100%;
+    margin-top: 10px;
+}
 
 .closed {
-
-    opacity:
-        0.5;
-
+    opacity: 0.6;
 }
 
+.closed b {
+    display: block;
+    color: #ff6b6b;
+    font-size: 13px;
+    margin-top: 10px;
+}
 
-@media(max-width:700px) {
+@media(max-width:768px) {
 
     .auth {
-
-        grid-template-columns:
-            1fr;
-
+        grid-template-columns: 1fr;
+        margin: 30px auto;
+        padding: 20px;
     }
 
     .tools {
+        flex-direction: column;
+        padding: 0 20px;
+    }
 
-        flex-direction:
-            column;
-
+    .games {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        padding: 0 20px 30px;
     }
 
     .hero h1 {
+        font-size: 36px;
+    }
 
-        font-size:
-            30px;
+    header {
+        padding: 0 4%;
+        height: 70px;
+    }
 
+    nav {
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 22px;
     }
 
 }
@@ -1565,16 +1535,13 @@ button {
 
 </head>
 
-
 <body>
-
 
 <header>
 
 <div class="logo">
-GAME<span>HUB</span>
+🎮 GAMEHUB
 </div>
-
 
 <nav>
 
@@ -1588,11 +1555,9 @@ Admin
 
 </nav>
 
-
 <div id="account"></div>
 
 </header>
-
 
 <section class="hero">
 
@@ -1606,9 +1571,7 @@ Admin
 
 </section>
 
-
 <section class="auth">
-
 
 <div class="box">
 
@@ -1616,18 +1579,9 @@ Admin
 Մուտք
 </h2>
 
-<input
-id="loginEmail"
-placeholder="Email"
->
+<input id="loginEmail" placeholder="Email">
 
-
-<input
-id="loginPassword"
-type="password"
-placeholder="Գաղտնաբառ"
->
-
+<input id="loginPassword" type="password" placeholder="Գաղտնաբառ">
 
 <button onclick="login()">
 Մուտք գործել
@@ -1635,31 +1589,17 @@ placeholder="Գաղտնաբառ"
 
 </div>
 
-
 <div class="box">
 
 <h2>
 Գրանցում
 </h2>
 
-<input
-id="registerName"
-placeholder="Անուն"
->
+<input id="registerName" placeholder="Անուն">
 
+<input id="registerEmail" placeholder="Email">
 
-<input
-id="registerEmail"
-placeholder="Email"
->
-
-
-<input
-id="registerPassword"
-type="password"
-placeholder="Գաղտնաբառ"
->
-
+<input id="registerPassword" type="password" placeholder="Գաղտնաբառ">
 
 <button onclick="register()">
 Գրանցվել
@@ -1667,384 +1607,98 @@ placeholder="Գաղտնաբառ"
 
 </div>
 
-
 </section>
-
 
 <section class="tools">
 
-<input
-id="search"
-placeholder="🔎 Փնտրել խաղ..."
-oninput="renderGames()"
->
+<input id="search" placeholder="🔎 Փնտրել խաղ..." oninput="renderGames()">
 
-
-<select
-id="category"
-onchange="renderGames()"
->
-
-<option value="">
-Բոլորը
-</option>
-
+<select id="category" onchange="renderGames()">
+<option value="">Բոլորը</option>
 </select>
 
 </section>
 
-
-<section
-id="games"
-class="games"
-></section>
-
+<section id="games" class="games"></section>
 
 <script>
 
 let games = [];
 
-
 function token() {
-
-    return localStorage.getItem(
-        "gamehub_token"
-    ) || "";
-
+    return localStorage.getItem("gamehub_token") || "";
 }
-
 
 async function loadGames() {
-
-    const response =
-        await fetch(
-            "/api/games"
-        );
-
-
-    games =
-        await response.json();
-
-
-    const categories =
-        [
-            ...new Set(
-                games.map(
-                    game =>
-                        game.category
-                )
-            )
-        ];
-
-
-    document.getElementById(
-        "category"
-    ).innerHTML =
-        `
-        <option value="">
-            Բոլորը
-        </option>
-        `
-
-        +
-
-        categories.map(
-            category =>
-                `
-                <option value="${category}">
-                    ${category}
-                </option>
-                `
-        ).join("");
-
-
+    const response = await fetch("/api/games");
+    games = await response.json();
+    const categories = [...new Set(games.map(game => game.category))];
+    document.getElementById("category").innerHTML = '<option value="">Բոլորը</option>' + categories.map(category => `<option value="${category}">${category}</option>`).join("");
     renderGames();
-
 }
-
 
 function renderGames() {
-
-    const search =
-        document.getElementById(
-            "search"
-        ).value.toLowerCase();
-
-
-    const category =
-        document.getElementById(
-            "category"
-        ).value;
-
-
-    const filtered =
-        games.filter(
-            game =>
-
-                (
-                    !search ||
-
-                    game.title
-                        .toLowerCase()
-                        .includes(search)
-                )
-
-                &&
-
-                (
-                    !category ||
-
-                    game.category ===
-                        category
-                )
-        );
-
-
-    document.getElementById(
-        "games"
-    ).innerHTML =
-
-        filtered.map(
-            game => `
-
-            <article
-                class="card
-                ${game.is_closed
-                    ? "closed"
-                    : ""}"
-            >
-
-                ${
-                    game.image
-
-                    ?
-
-                    `
-                    <img
-                        src="${game.image}"
-                    >
-                    `
-
-                    :
-
-                    `
-                    <div
-                        class="placeholder"
-                    >
-                        🎮
-                    </div>
-                    `
-                }
-
-
-                <span class="tag">
-                    ${game.category}
-                </span>
-
-
-                <h3>
-                    ${game.title}
-                </h3>
-
-
-                <p>
-                    ${game.description}
-                </p>
-
-
-                ${
-                    game.is_closed
-
-                    ?
-
-                    `
-                    <b>
-                        🔒 Ժամանակավորապես փակ է
-                    </b>
-                    `
-
-                    :
-
-                    `
-                    <button
-                        onclick="playGame(${game.id})"
-                    >
-                        Խաղալ
-                    </button>
-                    `
-                }
-
-            </article>
-
-            `
-        ).join("");
-
+    const search = document.getElementById("search").value.toLowerCase();
+    const category = document.getElementById("category").value;
+    const filtered = games.filter(game => (!search || game.title.toLowerCase().includes(search)) && (!category || game.category === category));
+    document.getElementById("games").innerHTML = filtered.map(game => `
+        <article class="card ${game.is_closed ? "closed" : ""}">
+            ${game.image ? `<img src="${game.image}">` : `<div class="placeholder">🎮</div>`}
+            <span class="tag">${game.category}</span>
+            <h3>${game.title}</h3>
+            <p>${game.description}</p>
+            ${game.is_closed ? `<b>🔒 Ժամանակավորապես փակ է</b>` : `<button onclick="playGame(${game.id})">Խաղալ</button>`}
+        </article>
+    `).join("");
 }
-
 
 function playGame(id) {
-
-    const game =
-        games.find(
-            item =>
-                item.id === id
-        );
-
-
+    const game = games.find(item => item.id === id);
     if (!game) return;
-
-
     if (game.game_url) {
-
-        window.open(
-            game.game_url,
-            "_blank"
-        );
-
+        window.open(game.game_url, "_blank");
+    } else {
+        alert("Այս խաղի հղումը դեռ չկա։");
     }
-
-    else {
-
-        alert(
-            "Այս խաղի հղումը դեռ չկա։"
-        );
-
-    }
-
 }
-
 
 async function register() {
-
-    const response =
-        await fetch(
-            "/api/register",
-            {
-
-                method:
-                    "POST",
-
-                headers: {
-                    "Content-Type":
-                        "application/json"
-                },
-
-                body:
-                    JSON.stringify({
-
-                        name:
-                            document.getElementById(
-                                "registerName"
-                            ).value,
-
-                        email:
-                            document.getElementById(
-                                "registerEmail"
-                            ).value,
-
-                        password:
-                            document.getElementById(
-                                "registerPassword"
-                            ).value
-
-                    })
-
-            }
-        );
-
-
-    const data =
-        await response.json();
-
-
+    const response = await fetch("/api/register", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            name: document.getElementById("registerName").value,
+            email: document.getElementById("registerEmail").value,
+            password: document.getElementById("registerPassword").value
+        })
+    });
+    const data = await response.json();
     if (!response.ok) {
-
         alert(data.error);
-
         return;
-
     }
-
-
-    localStorage.setItem(
-        "gamehub_token",
-        data.token
-    );
-
-
-    alert(
-        "Գրանցումը հաջողվեց։"
-    );
-
+    localStorage.setItem("gamehub_token", data.token);
+    alert("Գրանցումը հաջողվեց։");
 }
-
 
 async function login() {
-
-    const response =
-        await fetch(
-            "/api/login",
-            {
-
-                method:
-                    "POST",
-
-                headers: {
-                    "Content-Type":
-                        "application/json"
-                },
-
-                body:
-                    JSON.stringify({
-
-                        email:
-                            document.getElementById(
-                                "loginEmail"
-                            ).value,
-
-                        password:
-                            document.getElementById(
-                                "loginPassword"
-                            ).value
-
-                    })
-
-            }
-        );
-
-
-    const data =
-        await response.json();
-
-
+    const response = await fetch("/api/login", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            email: document.getElementById("loginEmail").value,
+            password: document.getElementById("loginPassword").value
+        })
+    });
+    const data = await response.json();
     if (!response.ok) {
-
         alert(data.error);
-
         return;
-
     }
-
-
-    localStorage.setItem(
-        "gamehub_token",
-        data.token
-    );
-
-
-    document.getElementById(
-        "account"
-    ).textContent =
-        "👤 " +
-        data.user.name;
-
-
-    alert(
-        "Մուտքը հաջողվեց։"
-    );
-
+    localStorage.setItem("gamehub_token", data.token);
+    document.getElementById("account").textContent = "👤 " + data.user.name;
+    alert("Մուտքը հաջողվեց։");
 }
-
 
 loadGames();
 
@@ -2071,222 +1725,225 @@ ADMIN_HTML = r"""
 
 <meta charset="UTF-8">
 
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>
-GameHub Admin
-</title>
+<title>GameHub Admin</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
 * {
-    box-sizing:
-        border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
-
 
 body {
-
-    margin:
-        0;
-
-    background:
-        #080d19;
-
-    color:
-        white;
-
-    font-family:
-        Arial;
-
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    background-attachment: fixed;
+    color: #e0e0e0;
+    min-height: 100vh;
 }
-
 
 header {
-
-    height:
-        70px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        space-between;
-
-    padding:
-        0 5%;
-
-    background:
-        #10182b;
-
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6%;
+    background: rgba(10, 10, 20, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(102, 126, 234, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
-
 
 .logo {
-
-    font-size:
-        24px;
-
-    font-weight:
-        bold;
-
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
-
-
-.logo span {
-
-    color:
-        #5d91ff;
-
-}
-
 
 a {
-
-    color:
-        white;
-
-    text-decoration:
-        none;
-
+    color: #e0e0e0;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
 }
 
+a:hover {
+    color: #667eea;
+}
 
 main {
-
-    max-width:
-        1100px;
-
-    margin:
-        auto;
-
-    padding:
-        30px 20px;
-
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 30px 50px;
 }
-
 
 .panel {
-
-    background:
-        #121c32;
-
-    padding:
-        25px;
-
-    border-radius:
-        15px;
-
+    background: rgba(20, 20, 40, 0.8);
+    backdrop-filter: blur(20px);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
+.panel h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
 
-input,
+#status {
+    font-size: 16px;
+    margin-bottom: 30px;
+    padding: 12px 16px;
+    background: rgba(102, 126, 234, 0.1);
+    border-left: 3px solid #667eea;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.panel h2 {
+    font-size: 22px;
+    margin: 30px 0 20px;
+    color: #e0e0e0;
+}
+
+input, select {
+    width: 100%;
+    padding: 14px 16px;
+    margin: 10px 0;
+    border-radius: 12px;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    background: rgba(10, 10, 20, 0.6);
+    color: #e0e0e0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #667eea;
+    background: rgba(10, 10, 20, 0.9);
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.2);
+}
+
+input::placeholder {
+    color: #666;
+}
+
 button {
-
-    width:
-        100%;
-
-    padding:
-        12px;
-
-    margin:
-        6px 0;
-
-    border-radius:
-        8px;
-
-    border:
-        1px solid #354363;
-
-    background:
-        #091122;
-
-    color:
-        white;
-
+    width: 100%;
+    padding: 14px 16px;
+    margin: 10px 0;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
 }
 
-
-button {
-
-    background:
-        #356de8;
-
-    border:
-        none;
-
-    cursor:
-        pointer;
-
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
 }
-
 
 .game {
-
-    margin-top:
-        10px;
-
-    padding:
-        15px;
-
-    background:
-        #121c32;
-
-    border:
-        1px solid #293654;
-
-    border-radius:
-        12px;
-
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(30, 30, 50, 0.8);
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    border-radius: 16px;
+    transition: all 0.3s ease;
 }
 
+.game:hover {
+    border-color: rgba(102, 126, 234, 0.5);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.1);
+}
+
+.game h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: #e0e0e0;
+}
+
+.game p {
+    font-size: 14px;
+    color: #a0a0a0;
+    margin-bottom: 8px;
+}
+
+.game small {
+    color: #667eea;
+    font-weight: 600;
+}
 
 .actions {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(
-            3,
-            1fr
-        );
-
-    gap:
-        8px;
-
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 15px;
 }
 
-
-.delete {
-
-    background:
-        #b6384c;
-
+button.delete {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
 }
 
-
-.open {
-
-    background:
-        #23885a;
-
+button.delete:hover {
+    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
 }
 
+button.open {
+    background: linear-gradient(135deg, #51cf66 0%, #37b24d 100%);
+}
 
-@media(max-width:700px) {
+button.open:hover {
+    box-shadow: 0 10px 30px rgba(81, 207, 102, 0.4);
+}
+
+@media(max-width:768px) {
+
+    main {
+        padding: 0 20px 30px;
+        margin: 20px auto;
+    }
+
+    .panel {
+        padding: 25px;
+    }
 
     .actions {
+        grid-template-columns: 1fr;
+    }
 
-        grid-template-columns:
-            1fr;
+    header {
+        padding: 0 4%;
+        height: 70px;
+    }
 
+    .logo {
+        font-size: 22px;
     }
 
 }
@@ -2295,566 +1952,168 @@ button {
 
 </head>
 
-
 <body>
-
 
 <header>
 
 <div class="logo">
-GAME<span>HUB</span> ADMIN
+🎮 GAMEHUB ADMIN
 </div>
 
-
 <a href="/">
-Հետ
+Կայք
 </a>
 
 </header>
 
-
 <main>
-
 
 <div class="panel">
 
-<h1>
-Admin Panel
-</h1>
-
+<h1>Admin Panel</h1>
 
 <p id="status">
 Ստուգում...
 </p>
 
-
 <h2>
 Ավելացնել խաղ
 </h2>
 
+<input id="title" placeholder="Խաղի անուն">
 
-<input
-id="title"
-placeholder="Խաղի անուն"
->
+<input id="description" placeholder="Նկարագրություն">
 
+<input id="category" placeholder="Կատեգորիա">
 
-<input
-id="description"
-placeholder="Նկարագրություն"
->
+<input id="gameUrl" placeholder="Խաղի հղում">
 
-
-<input
-id="category"
-placeholder="Կատեգորիա"
->
-
-
-<input
-id="gameUrl"
-placeholder="Խաղի հղում"
->
-
-
-<input
-id="image"
-type="file"
-accept="image/*"
->
-
+<input id="image" type="file" accept="image/*">
 
 <button onclick="addGame()">
 ➕ Ավելացնել խաղ
 </button>
 
-
 </div>
 
-
-<h2>
+<h2 style="margin-top: 40px; margin-bottom: 25px;">
 Խաղերի կառավարում
 </h2>
 
-
 <div id="adminGames"></div>
-
 
 </main>
 
-
 <script>
 
-
 function token() {
-
-    return localStorage.getItem(
-        "gamehub_token"
-    ) || "";
-
+    return localStorage.getItem("gamehub_token") || "";
 }
-
 
 async function checkAdmin() {
-
-    const response =
-        await fetch(
-            "/api/me",
-            {
-                headers: {
-                    Authorization:
-                        "Bearer " + token()
-                }
-            }
-        );
-
-
+    const response = await fetch("/api/me", {
+        headers: {"Authorization": "Bearer " + token()}
+    });
     if (!response.ok) {
-
-        document.getElementById(
-            "status"
-        ).textContent =
-            "❌ Մուտք գործիր Admin հաշվով։";
-
+        document.getElementById("status").textContent = "❌ Մուտք գործիր Admin հաշվով։";
         return;
-
     }
-
-
-    const data =
-        await response.json();
-
-
+    const data = await response.json();
     if (!data.user.is_admin) {
-
-        document.getElementById(
-            "status"
-        ).textContent =
-            "❌ Դու Admin չես։";
-
+        document.getElementById("status").textContent = "❌ Դու Admin չես։";
         return;
-
     }
-
-
-    document.getElementById(
-        "status"
-    ).textContent =
-        "✅ Admin՝ " +
-        data.user.name;
-
-
+    document.getElementById("status").textContent = "✅ Admin՝ " + data.user.name;
     loadAdminGames();
-
 }
-
 
 async function loadAdminGames() {
-
-    const response =
-        await fetch(
-            "/api/games"
-        );
-
-
-    const games =
-        await response.json();
-
-
-    document.getElementById(
-        "adminGames"
-    ).innerHTML =
-
-        games.map(
-            game => `
-
-            <div class="game">
-
-                <h3>
-                    ${game.title}
-                </h3>
-
-                <p>
-                    ${game.description}
-                </p>
-
-                <small>
-                    ${game.category}
-                </small>
-
-                <br><br>
-
-                ${
-                    game.is_closed
-
-                    ?
-
-                    "🔒 ՓԱԿ"
-
-                    :
-
-                    "🟢 ԲԱՑ"
-                }
-
-
-                <div class="actions">
-
-                    <button
-                        onclick="editGame(${game.id})"
-                    >
-                        ✏️ Խմբագրել
-                    </button>
-
-
-                    ${
-                        game.is_closed
-
-                        ?
-
-                        `
-                        <button
-                            class="open"
-                            onclick="openGame(${game.id})"
-                        >
-                            🔓 Բացել
-                        </button>
-                        `
-
-                        :
-
-                        `
-                        <button
-                            onclick="closeGame(${game.id})"
-                        >
-                            🔒 Փակել
-                        </button>
-                        `
-                    }
-
-
-                    <button
-                        class="delete"
-                        onclick="deleteGame(${game.id})"
-                    >
-                        🗑️ Ջնջել
-                    </button>
-
-                </div>
-
+    const response = await fetch("/api/games");
+    const games = await response.json();
+    document.getElementById("adminGames").innerHTML = games.map(game => `
+        <div class="game">
+            <h3>${game.title}</h3>
+            <p>${game.description}</p>
+            <small>${game.category}</small>
+            <br><br>
+            ${game.is_closed ? "🔒 ՓԱԿ" : "🟢 ԲԱՑ"}
+            <div class="actions">
+                <button onclick="editGame(${game.id})">✏️ Խմբագրել</button>
+                ${game.is_closed ? `<button class="open" onclick="openGame(${game.id})">🔓 Բացել</button>` : `<button onclick="closeGame(${game.id})">🔒 Փակել</button>`}
+                <button class="delete" onclick="deleteGame(${game.id})">🗑️ Ջնջել</button>
             </div>
-
-            `
-        ).join("");
-
+        </div>
+    `).join("");
 }
-
 
 async function addGame() {
-
-    const form =
-        new FormData();
-
-
-    form.append(
-        "title",
-        document.getElementById(
-            "title"
-        ).value
-    );
-
-
-    form.append(
-        "description",
-        document.getElementById(
-            "description"
-        ).value
-    );
-
-
-    form.append(
-        "category",
-        document.getElementById(
-            "category"
-        ).value ||
-        "Other"
-    );
-
-
-    form.append(
-        "game_url",
-        document.getElementById(
-            "gameUrl"
-        ).value
-    );
-
-
-    const image =
-        document.getElementById(
-            "image"
-        ).files[0];
-
-
-    if (image) {
-
-        form.append(
-            "image",
-            image
-        );
-
-    }
-
-
-    const response =
-        await fetch(
-            "/api/admin/games",
-            {
-
-                method:
-                    "POST",
-
-                headers: {
-
-                    Authorization:
-                        "Bearer " + token()
-
-                },
-
-                body:
-                    form
-
-            }
-        );
-
-
-    const data =
-        await response.json();
-
-
+    const form = new FormData();
+    form.append("title", document.getElementById("title").value);
+    form.append("description", document.getElementById("description").value);
+    form.append("category", document.getElementById("category").value || "Other");
+    form.append("game_url", document.getElementById("gameUrl").value);
+    const image = document.getElementById("image").files[0];
+    if (image) form.append("image", image);
+    const response = await fetch("/api/admin/games", {
+        method: "POST",
+        headers: {"Authorization": "Bearer " + token()},
+        body: form
+    });
+    const data = await response.json();
     if (!response.ok) {
-
         alert(data.error);
-
         return;
-
     }
-
-
-    alert(
-        "Խաղը ավելացվեց։"
-    );
-
-
-    document.getElementById(
-        "title"
-    ).value = "";
-
-
-    document.getElementById(
-        "description"
-    ).value = "";
-
-
-    document.getElementById(
-        "category"
-    ).value = "";
-
-
-    document.getElementById(
-        "gameUrl"
-    ).value = "";
-
-
-    document.getElementById(
-        "image"
-    ).value = "";
-
-
+    alert("Խաղը ավելացվեց։");
+    document.getElementById("title").value = "";
+    document.getElementById("description").value = "";
+    document.getElementById("category").value = "";
+    document.getElementById("gameUrl").value = "";
+    document.getElementById("image").value = "";
     loadAdminGames();
-
 }
-
 
 async function deleteGame(id) {
-
-    if (
-        !confirm(
-            "Ջնջե՞լ խաղը։"
-        )
-    ) {
-        return;
-    }
-
-
-    await fetch(
-        "/api/admin/games/" +
-        id,
-        {
-
-            method:
-                "DELETE",
-
-            headers: {
-
-                Authorization:
-                    "Bearer " + token()
-
-            }
-
-        }
-    );
-
-
+    if (!confirm("Ջնջե՞լ խաղը։")) return;
+    await fetch("/api/admin/games/" + id, {
+        method: "DELETE",
+        headers: {"Authorization": "Bearer " + token()}
+    });
     loadAdminGames();
-
 }
-
 
 async function closeGame(id) {
-
-    const minutes =
-        prompt(
-            "Քանի՞ րոպե փակել խաղը։",
-            "60"
-        );
-
-
+    const minutes = prompt("Քանի՞ րոպե փակել խաղը։", "60");
     if (!minutes) return;
-
-
-    await fetch(
-        "/api/admin/games/" +
-        id +
-        "/close",
-        {
-
-            method:
-                "POST",
-
-            headers: {
-
-                "Content-Type":
-                    "application/json",
-
-                Authorization:
-                    "Bearer " + token()
-
-            },
-
-            body:
-                JSON.stringify({
-                    minutes:
-                        Number(minutes)
-                })
-
-        }
-    );
-
-
+    await fetch("/api/admin/games/" + id + "/close", {
+        method: "POST",
+        headers: {"Content-Type": "application/json", "Authorization": "Bearer " + token()},
+        body: JSON.stringify({minutes: Number(minutes)})
+    });
     loadAdminGames();
-
 }
-
 
 async function openGame(id) {
-
-    await fetch(
-        "/api/admin/games/" +
-        id +
-        "/open",
-        {
-
-            method:
-                "POST",
-
-            headers: {
-
-                Authorization:
-                    "Bearer " + token()
-
-            }
-
-        }
-    );
-
-
+    await fetch("/api/admin/games/" + id + "/open", {
+        method: "POST",
+        headers: {"Authorization": "Bearer " + token()}
+    });
     loadAdminGames();
-
 }
-
 
 async function editGame(id) {
-
-    const title =
-        prompt(
-            "Նոր անունը:"
-        );
-
-
-    if (title === null)
-        return;
-
-
-    const description =
-        prompt(
-            "Նոր նկարագրությունը:"
-        );
-
-
-    const category =
-        prompt(
-            "Նոր կատեգորիան:"
-        );
-
-
-    const gameUrl =
-        prompt(
-            "Նոր խաղի հղումը:"
-        );
-
-
-    await fetch(
-        "/api/admin/games/" +
-        id,
-        {
-
-            method:
-                "PUT",
-
-            headers: {
-
-                "Content-Type":
-                    "application/json",
-
-                Authorization:
-                    "Bearer " + token()
-
-            },
-
-            body:
-                JSON.stringify({
-
-                    title:
-                        title,
-
-                    description:
-                        description,
-
-                    category:
-                        category,
-
-                    game_url:
-                        gameUrl
-
-                })
-
-        }
-    );
-
-
+    const title = prompt("Նոր անունը:");
+    if (title === null) return;
+    const description = prompt("Նոր նկարագրությունը:");
+    const category = prompt("Նոր կատեգորիան:");
+    const gameUrl = prompt("Նոր խաղի հղումը:");
+    await fetch("/api/admin/games/" + id, {
+        method: "PUT",
+        headers: {"Content-Type": "application/json", "Authorization": "Bearer " + token()},
+        body: JSON.stringify({title: title, description: description, category: category, game_url: gameUrl})
+    });
     loadAdminGames();
-
 }
-
 
 checkAdmin();
 
