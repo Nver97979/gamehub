@@ -160,114 +160,63 @@ def init_database():
 
         ]
 
-
-        special_games = [
-
-            (
-                "GTA VI",
-
-                "Grand Theft Auto VI",
-
-                "Action"
-            ),
-
-            (
-                "GTA V",
-
-                "Grand Theft Auto V",
-
-                "Action"
-            ),
-
-            (
-                "Minecraft",
-
-                "Build and explore",
-
-                "Sandbox"
-            ),
-
-            (
-                "EA SPORTS FC 26",
-
-                "Football game",
-
-                "Sports"
-            ),
-
-            (
-                "Roblox",
-
-                "Play and create",
-
-                "Adventure"
-            ),
-
-            (
-                "Fortnite",
-
-                "Battle Royale",
-
-                "Action"
-            ),
-
-            (
-                "Red Dead Redemption 2",
-
-                "Western open world",
-
-                "Adventure"
-            ),
-
-            (
-                "Cyberpunk 2077",
-
-                "Futuristic RPG",
-
-                "RPG"
-            ),
-
-            (
-                "Forza Horizon 5",
-
-                "Open world racing",
-
-                "Racing"
-            ),
-
-            (
-                "Need for Speed Heat",
-
-                "Street racing",
-
-                "Racing"
-            )
-
+        image_pool = [
+            "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1511884642898-4c92249e20b6?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1528819622761-6bcf9d5b0f8b?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1514454529242-9e4677563e7b?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1200&q=80"
         ]
 
+        special_games = [
+            ("GTA VI", "Open-world action with huge city missions, online heists, and cinematic driving chaos.", "Action"),
+            ("GTA V", "Crime-filled open world with story missions, vehicles, and unforgettable characters.", "Action"),
+            ("Minecraft", "Build, explore, survive, and create your own world block by block.", "Sandbox"),
+            ("EA SPORTS FC 26", "Modern football competition with realistic stadiums, clubs, and match-day action.", "Sports"),
+            ("Roblox", "Social sandbox world with quests, games, creation tools, and player-made experiences.", "Adventure"),
+            ("Fortnite", "Battle royale survival with building, weapon upgrades, and live events.", "Action"),
+            ("Red Dead Redemption 2", "Wild west life, deep story, horse riding, and immersive exploration.", "Adventure"),
+            ("Cyberpunk 2077", "Night city action RPG with futuristic weapons, hacking, and high-risk missions.", "RPG"),
+            ("Forza Horizon 5", "Arcade racing with huge open roads, cars, and festival-style events.", "Racing"),
+            ("Need for Speed Heat", "Street racing experience with city police chases and high-speed upgrades.", "Racing"),
+            ("Valorant", "Precision tactical shooter with sharp aim, agent abilities, and competitive rounds.", "Action"),
+            ("Apex Legends", "Squad-based battle royale with character skills and fast-moving combat.", "Action"),
+            ("Call of Duty", "High-intensity modern warfare with huge battles, weapons, and campaign action.", "Action"),
+            ("Elden Ring", "Dark fantasy RPG with massive worlds, bosses, and slow-burn exploration.", "RPG"),
+            ("The Witcher 3", "Story-rich fantasy adventure with monsters, choices, and deep character arcs.", "RPG"),
+            ("Assassin's Creed Mirage", "Stealth action with parkour, assassinations, and historical exploration.", "Adventure"),
+            ("Dead by Daylight", "Asymmetrical survival horror where one killer hunts a squad of survivors.", "Action"),
+            ("PUBG", "Battle royale survival with dropping, looting, and tactical finishing positions.", "Action"),
+            ("Rocket League", "Car football with crazy tricks, aerial goals, and competitive multiplayer.", "Sports"),
+            ("Starfield", "Space exploration RPG featuring travel, sci-fi quests, and custom builds.", "RPG")
+        ]
 
         for i in range(100):
 
             if i < len(special_games):
 
-                title = special_games[i][0]
-
-                description = special_games[i][1]
-
-                category = special_games[i][2]
+                title, description, category = special_games[i]
 
             else:
 
                 title = f"Game {i + 1}"
 
+                category = categories[i % len(categories)]
+
                 description = (
-                    f"GameHub game #{i + 1}"
+                    f"{category} game #{i + 1} with exciting missions, intense battles, and a highly polished gameplay loop."
                 )
 
-                category = categories[
-                    i % len(categories)
-                ]
-
+            image = image_pool[i % len(image_pool)]
+            slug = title.lower().replace(" ", "-").replace("'", "")
+            game_url = f"https://www.example.com/games/{slug}"
 
             connection.execute(
                 """
@@ -276,10 +225,12 @@ def init_database():
                     title,
                     description,
                     category,
+                    image,
+                    game_url,
                     created_at
                 )
 
-                VALUES (?, ?, ?, ?)
+                VALUES (?, ?, ?, ?, ?, ?)
                 """,
 
                 (
@@ -288,6 +239,10 @@ def init_database():
                     description,
 
                     category,
+
+                    image,
+
+                    game_url,
 
                     datetime.utcnow().isoformat()
                 )
@@ -1000,17 +955,6 @@ def delete_game(game_id):
 
 
     connection = db()
-
-
-    game = connection.execute(
-        """
-        SELECT image
-        FROM games
-        WHERE id=?
-        """,
-
-        (game_id,)
-    ).fetchone()
 
 
     connection.execute(
